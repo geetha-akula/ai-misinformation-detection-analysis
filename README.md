@@ -1,30 +1,74 @@
-# Industry 4.0 Decision Intelligence for Generative AI Misinformation
+# AI Misinformation Detection & Risk-Based Prioritisation
 
-Link of the project on github: [github.com/ALikesToCode/industry-4.0-gaabs-analysis](https://github.com/ALikesToCode/industry-4.0-gaabs-analysis)
-
-This repository delivers an end-to-end analytics, prediction, and optimisation pipeline that treats social-media misinformation control as a **Quality 4.0** problem inside an Industry 4.0 ecosystem. Starting from a 500-row synthetic dataset, we quantify risk patterns, train classifiers to obtain misinformation probabilities, and allocate scarce manual review capacity to maximise harmful-engagement reduction.
-
-The project is designed to be report-ready: every figure, table, and metric is regenerated via a single script and cross-referenced in `reports/analysis_report.md` for quick integration into presentations or academic submissions.
+Academic Team Project | IIT Madras Industry 4.0 (GAABS 4.0)
 
 ---
 
-## Table of contents
+## Team Project
 
-- [Industry 4.0 Decision Intelligence for Generative AI Misinformation](#industry-40-decision-intelligence-for-generative-ai-misinformation)
-  - [Table of contents](#table-of-contents)
-  - [Problem framing](#problem-framing)
-  - [Repository layout](#repository-layout)
-  - [Environment \& reproducibility](#environment--reproducibility)
-  - [Pipeline overview](#pipeline-overview)
-  - [Key findings](#key-findings)
-    - [Dataset snapshot](#dataset-snapshot)
-    - [Exploratory analytics](#exploratory-analytics)
-    - [Predictive modelling](#predictive-modelling)
-    - [Risk-based optimisation](#risk-based-optimisation)
-  - [Industry 4.0 alignment](#industry-40-alignment)
-  - [Next steps](#next-steps)
+This project was developed as part of the IIT Madras Industry 4.0 (GAABS 4.0) coursework by Team 7.
+
+### Team Members
+
+* Akula Geetha Maheswari
+* Abhyudaya B Tharakan
+* Aditya Singh
+* Akshaj Barve
+* Sarthak Vashistha
+
+This repository is maintained by Akula Geetha Maheswari for portfolio and learning purposes.
+
+### Original Team Repository
+
+[Original Team Repository](https://github.com/ALikesToCode/industry-4.0-gaabs-analysis)
+
+> Note: This repository is a portfolio version maintained by Akula Geetha Maheswari. Credit for the project belongs to the entire project team.
 
 ---
+
+This repository delivers an end-to-end analytics, prediction, and optimisation pipeline that treats social-media misinformation control as a **Quality 4.0** problem inside an Industry 4.0 ecosystem. Starting from a 500-row synthetic dataset, we quantify risk patterns, train classifiers to obtain misinformation probabilities, and allocate scarce manual-review capacity to maximise harmful-engagement reduction.
+
+The project is designed to be report-ready: every figure, table, and metric is regenerated via a single script and cross-referenced in the analysis report for quick integration into presentations or academic submissions.
+
+---
+
+## Skills Demonstrated
+
+* Machine Learning
+* Classification
+* Random Forest
+* Logistic Regression
+* Natural Language Processing (NLP)
+* TF-IDF Vectorization
+* Feature Engineering
+* Exploratory Data Analysis (EDA)
+* Data Visualization
+* Risk-Based Optimization
+* Python
+* Pandas
+* Scikit-learn
+
+---
+
+## Table of Contents
+
+* [Team Project](#team-project)
+* [Problem Framing](#problem-framing)
+* [Repository Layout](#repository-layout)
+* [Environment & Reproducibility](#environment--reproducibility)
+* [Pipeline Overview](#pipeline-overview)
+* [Key Findings](#key-findings)
+
+  * [Dataset Snapshot](#dataset-snapshot)
+  * [Exploratory Analytics](#exploratory-analytics)
+  * [Predictive Modelling](#predictive-modelling)
+  * [Risk-Based Optimisation](#risk-based-optimisation)
+* [Industry 4.0 Alignment](#industry-40-alignment)
+* [Next Steps](#next-steps)
+* [Acknowledgements](#acknowledgements)
+
+---
+
 
 ## Problem framing
 
@@ -51,8 +95,12 @@ analysis/
   run_analysis.py         # Main pipeline (EDA + modelling + optimisation + figures)
 genai-dataset/
   generative_ai_misinformation_dataset.csv
-reports/
+docs/
   figures/                # 59 regenerated PNGs (referenced in analysis_report.md)
+  GAABS 4.0 Project Summary Report.pdf
+  analysis_report.pdf
+  project_summary.pdf
+reports/
   metrics_summary.json    # Structured output of stats, model metrics, optimisation table
   risk_coverage_curve.csv # Data behind the coverage chart
   analysis_report.md      # Narrative describing each figure and insight
@@ -83,7 +131,7 @@ All outputs land under `reports/`. The script prints a JSON summary to stdout an
    * Create clean categorical labels for plotting.
 2. **Exploratory data analysis**
    * 59 charts covering platform, temporal, content, structural, reliability, and author dimensions.
-   * Output saved in `reports/figures/`; see `analysis_report.md` for per-figure commentary.
+   * Output saved in `docs/figures/`; see `analysis_report.md` for per-figure commentary.
 3. **Machine learning**
    * Baseline: Logistic Regression with balanced class weights.
    * Advanced: Random Forest with metadata + TF-IDF bigrams (500 features) reduced via TruncatedSVD (50 latent topics).
@@ -102,26 +150,26 @@ All outputs land under `reports/`. The script prints a JSON summary to stdout an
 * **Label balance**: 268 misinformation (53.6%) vs. 232 legitimate posts (46.4%).
 * **Temporal coverage**: Full calendar year with weekday & hourly granularity.
 
-![Class distribution](reports/figures/class_distribution.png)
+![Class distribution](docs/figures/class_distribution.png)
 
 ### Exploratory analytics
 
 See `reports/analysis_report.md` for the full narrative and figure references. Highlights:
 
 * **Platform risk**: Twitter has the highest misinformation prevalence (~60%) compared to other channels (~51%).
-  * Figures: `reports/figures/platform_counts.png`, `reports/figures/misinformation_rate_by_platform.png`.
+  * Figures: `docs/figures/platform_counts.png`, `docs/figures/misinformation_rate_by_platform.png`.
 * **Temporal spikes**: May and September peak above 60% misinformation share; Fridays and Mondays are the riskiest weekdays.
-  * Figures: `reports/figures/monthly_misinformation_rate.png`, `reports/figures/weekday_misinformation_rate.png`, `reports/figures/hourly_misinformation_rate.png`.
+  * Figures: `docs/figures/monthly_misinformation_rate.png`, `docs/figures/weekday_misinformation_rate.png`, `docs/figures/hourly_misinformation_rate.png`.
 * **Content tone**: Harmful posts skew negative (`sentiment_score` ↓) without being more toxic.
-  * Figures: `reports/figures/sentiment_by_label.png`, `reports/figures/toxicity_by_label.png`.
+  * Figures: `docs/figures/sentiment_by_label.png`, `docs/figures/toxicity_by_label.png`.
 * **Narrative depth**: Misinformation uses longer text and more tokens.
-  * Figures: `reports/figures/text_length_by_label.png`, `reports/figures/token_count_hist_by_label.png`.
+  * Figures: `docs/figures/text_length_by_label.png`, `docs/figures/token_count_hist_by_label.png`.
 * **Source reliability**: Slightly lower for misinformation, reinforcing the value of domain reputation.
-  * Figure: `reports/figures/source_reliability_by_label.png`.
+  * Figure: `docs/figures/source_reliability_by_label.png`.
 * **Engagement parity**: Harmful and legitimate posts attract similar engagement; triage must combine risk and reach.
-  * Figures: `reports/figures/engagement_by_label.png`, `reports/figures/followers_vs_engagement_scatter.png`.
+  * Figures: `docs/figures/engagement_by_label.png`, `docs/figures/followers_vs_engagement_scatter.png`.
 * **Multivariate insight**: No single numeric feature correlates strongly (|r| < 0.1), justifying multivariate ML.
-  * Figure: `reports/figures/correlation_heatmap.png`.
+  * Figure: `docs/figures/correlation_heatmap.png`.
 
 ### Predictive modelling
 
@@ -130,7 +178,7 @@ See `reports/analysis_report.md` for the full narrative and figure references. H
 | Logistic Regression (balanced, TF-IDF) | 0.487 | 0.516 | 0.612 | 0.560 | 0.470 |
 | Random Forest (400 trees + SVD topics) | **0.553** | **0.554** | **0.838** | **0.667** | **0.481** |
 
-* Figures: `reports/figures/random_forest_confusion_matrix.png`, `reports/figures/random_forest_roc_curve.png`, `reports/figures/random_forest_feature_importance.png`.
+* Figures: `docs/figures/random_forest_confusion_matrix.png`, `docs/figures/random_forest_roc_curve.png`, `docs/figures/random_forest_feature_importance.png`.
 * **Interpretation**:
   * Text bigrams combined with metadata substantially boost recall (84%) but probability calibration remains challenging (ROC-AUC ≈ 0.48).
   * Top features blend surface signals (token_count, sentiment, toxicity, engagement) with latent text topics extracted via SVD, alongside domain reliability cues.
@@ -140,7 +188,7 @@ See `reports/analysis_report.md` for the full narrative and figure references. H
 
 Using model probabilities with engagement weighting improves moderation efficiency:
 
-![Risk coverage curve](reports/figures/risk_coverage_curve.png)
+![Risk coverage curve](docs/figures/risk_coverage_curve.png)
 
 | Daily review capacity | % posts screened | Misinfo captured | % of all misinfo | Expected harmful engagement mitigated |
 | --- | --- | --- | --- | --- |
@@ -179,3 +227,10 @@ We recommend weaving these hooks directly into slides or reports to match Indust
 5. **Governance metrics** – Add fairness checks (platform/country recall parity) and alerting thresholds for deployment.
 
 For a graph-by-graph narrative, consult `reports/analysis_report.md`—each figure there is directly shareable with instructors, stakeholders, or executive decision-makers.
+
+
+## Acknowledgements
+
+This repository contains a portfolio version of an IIT Madras Industry 4.0 team project.
+
+Credit for the project belongs to the full project team. This repository is maintained for educational, learning, and portfolio purposes.
