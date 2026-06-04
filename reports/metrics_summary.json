@@ -1,0 +1,267 @@
+{
+  "descriptive_stats": {
+    "shape": {
+      "n_rows": 500,
+      "n_columns": 35
+    },
+    "class_counts": {
+      "0": 232,
+      "1": 268
+    },
+    "class_proportions": {
+      "0": 0.464,
+      "1": 0.536
+    },
+    "platform_counts": {
+      "Twitter": 129,
+      "Facebook": 126,
+      "Telegram": 124,
+      "Reddit": 121
+    },
+    "platform_misinfo_rate": {
+      "Facebook": 0.5079,
+      "Reddit": 0.5124,
+      "Telegram": 0.5161,
+      "Twitter": 0.6047
+    },
+    "month_misinfo_rate": {
+      "January": 0.5714,
+      "February": 0.5686,
+      "March": 0.4286,
+      "April": 0.5849,
+      "May": 0.6538,
+      "June": 0.4154,
+      "July": 0.4694,
+      "August": 0.6,
+      "September": 0.6207,
+      "October": 0.5556,
+      "November": 0.5238,
+      "December": 0.5909
+    },
+    "weekday_misinfo_rate": {
+      "Monday": 0.5676,
+      "Tuesday": 0.5781,
+      "Wednesday": 0.5217,
+      "Thursday": 0.5139,
+      "Friday": 0.5783,
+      "Saturday": 0.4603,
+      "Sunday": 0.52
+    },
+    "feature_means_by_label": {
+      "author_followers": {
+        "legitimate_mean": 483918.2586206897,
+        "misinfo_mean": 524641.6194029851
+      },
+      "text_length": {
+        "legitimate_mean": 146.56034482758622,
+        "misinfo_mean": 156.03358208955223
+      },
+      "token_count": {
+        "legitimate_mean": 33.956896551724135,
+        "misinfo_mean": 36.78358208955224
+      },
+      "sentiment_score": {
+        "legitimate_mean": 0.05958189655172414,
+        "misinfo_mean": -0.04479850746268657
+      },
+      "toxicity_score": {
+        "legitimate_mean": 0.5115043103448276,
+        "misinfo_mean": 0.4824813432835821
+      },
+      "detected_synthetic_score": {
+        "legitimate_mean": 0.4825862068965517,
+        "misinfo_mean": 0.48779850746268655
+      },
+      "embedding_sim_to_facts": {
+        "legitimate_mean": 0.5151637931034483,
+        "misinfo_mean": 0.5221007462686568
+      },
+      "source_domain_reliability": {
+        "legitimate_mean": 0.5165431034482758,
+        "misinfo_mean": 0.4922462686567164
+      },
+      "engagement": {
+        "legitimate_mean": 5376.379310344828,
+        "misinfo_mean": 5414.492537313433
+      }
+    }
+  },
+  "model_performance": {
+    "logistic_regression": {
+      "accuracy": 0.4866666666666667,
+      "precision": 0.5157894736842106,
+      "recall": 0.6125,
+      "f1": 0.56,
+      "roc_auc": 0.4696428571428572
+    },
+    "random_forest": {
+      "accuracy": 0.5533333333333333,
+      "precision": 0.5537190082644629,
+      "recall": 0.8375,
+      "f1": 0.6666666666666666,
+      "roc_auc": 0.4805357142857143
+    }
+  },
+  "feature_importances_top15": [
+    {
+      "feature": "token_count",
+      "importance": 0.033124413296203754
+    },
+    {
+      "feature": "sentiment_score",
+      "importance": 0.0280740688608972
+    },
+    {
+      "feature": "text_length",
+      "importance": 0.028006919897927487
+    },
+    {
+      "feature": "toxicity_score",
+      "importance": 0.027691389147365464
+    },
+    {
+      "feature": "engagement",
+      "importance": 0.02758762584489586
+    },
+    {
+      "feature": "detected_synthetic_score",
+      "importance": 0.026826101893284323
+    },
+    {
+      "feature": "author_followers",
+      "importance": 0.026406513398627224
+    },
+    {
+      "feature": "source_domain_reliability",
+      "importance": 0.025826658387674093
+    },
+    {
+      "feature": "readability_score",
+      "importance": 0.025452692744034604
+    },
+    {
+      "feature": "embedding_sim_to_facts",
+      "importance": 0.025162073154793803
+    },
+    {
+      "feature": "text_topic_31",
+      "importance": 0.01970977398434384
+    },
+    {
+      "feature": "text_topic_40",
+      "importance": 0.01846448216979718
+    },
+    {
+      "feature": "text_topic_4",
+      "importance": 0.018184447868630254
+    },
+    {
+      "feature": "text_topic_25",
+      "importance": 0.017439015305709744
+    },
+    {
+      "feature": "text_topic_24",
+      "importance": 0.01702473638939448
+    }
+  ],
+  "risk_prioritisation": {
+    "coverage_summary": [
+      {
+        "review_capacity": 10,
+        "share_of_posts": 0.02,
+        "misinformation_captured": 10,
+        "share_of_misinformation_captured": 0.03731343283582089,
+        "expected_harm_addressed": 78859.79590047518
+      },
+      {
+        "review_capacity": 20,
+        "share_of_posts": 0.04,
+        "misinformation_captured": 20,
+        "share_of_misinformation_captured": 0.07462686567164178,
+        "expected_harm_addressed": 152823.87704417255
+      },
+      {
+        "review_capacity": 50,
+        "share_of_posts": 0.1,
+        "misinformation_captured": 50,
+        "share_of_misinformation_captured": 0.1865671641791045,
+        "expected_harm_addressed": 362752.6294844722
+      },
+      {
+        "review_capacity": 100,
+        "share_of_posts": 0.2,
+        "misinformation_captured": 100,
+        "share_of_misinformation_captured": 0.373134328358209,
+        "expected_harm_addressed": 654754.4427269282
+      },
+      {
+        "review_capacity": 150,
+        "share_of_posts": 0.3,
+        "misinformation_captured": 150,
+        "share_of_misinformation_captured": 0.5597014925373134,
+        "expected_harm_addressed": 880085.8299849022
+      }
+    ]
+  },
+  "figure_paths": [
+    "reports/figures/class_distribution.png",
+    "reports/figures/platform_counts.png",
+    "reports/figures/misinformation_rate_by_platform.png",
+    "reports/figures/monthly_misinformation_rate.png",
+    "reports/figures/weekday_misinformation_rate.png",
+    "reports/figures/hourly_misinformation_rate.png",
+    "reports/figures/country_misinformation_rate.png",
+    "reports/figures/factcheck_verdict_counts.png",
+    "reports/figures/factcheck_verdict_misinfo_rate.png",
+    "reports/figures/author_verification_misinfo_rate.png",
+    "reports/figures/model_signature_distribution.png",
+    "reports/figures/model_signature_misinfo_rate.png",
+    "reports/figures/platform_country_heatmap.png",
+    "reports/figures/platform_month_heatmap.png",
+    "reports/figures/sentiment_vs_toxicity_scatter.png",
+    "reports/figures/followers_vs_engagement_scatter.png",
+    "reports/figures/sentiment_by_label.png",
+    "reports/figures/toxicity_by_label.png",
+    "reports/figures/text_length_by_label.png",
+    "reports/figures/source_reliability_by_label.png",
+    "reports/figures/engagement_by_label.png",
+    "reports/figures/author_followers_log10_hist.png",
+    "reports/figures/author_followers_log10_hist_by_label.png",
+    "reports/figures/engagement_log10_hist.png",
+    "reports/figures/engagement_log10_hist_by_label.png",
+    "reports/figures/text_length_hist.png",
+    "reports/figures/text_length_hist_by_label.png",
+    "reports/figures/token_count_hist.png",
+    "reports/figures/token_count_hist_by_label.png",
+    "reports/figures/readability_score_hist.png",
+    "reports/figures/readability_score_hist_by_label.png",
+    "reports/figures/num_urls_hist.png",
+    "reports/figures/num_urls_hist_by_label.png",
+    "reports/figures/num_mentions_hist.png",
+    "reports/figures/num_mentions_hist_by_label.png",
+    "reports/figures/num_hashtags_hist.png",
+    "reports/figures/num_hashtags_hist_by_label.png",
+    "reports/figures/sentiment_score_hist.png",
+    "reports/figures/sentiment_score_hist_by_label.png",
+    "reports/figures/toxicity_score_hist.png",
+    "reports/figures/toxicity_score_hist_by_label.png",
+    "reports/figures/detected_synthetic_score_hist.png",
+    "reports/figures/detected_synthetic_score_hist_by_label.png",
+    "reports/figures/embedding_sim_to_facts_hist.png",
+    "reports/figures/embedding_sim_to_facts_hist_by_label.png",
+    "reports/figures/external_factchecks_count_hist.png",
+    "reports/figures/external_factchecks_count_hist_by_label.png",
+    "reports/figures/source_domain_reliability_hist.png",
+    "reports/figures/source_domain_reliability_hist_by_label.png",
+    "reports/figures/sentiment_by_platform.png",
+    "reports/figures/toxicity_by_platform.png",
+    "reports/figures/engagement_by_platform.png",
+    "reports/figures/text_length_by_platform.png",
+    "reports/figures/author_followers_by_platform.png",
+    "reports/figures/correlation_heatmap.png",
+    "reports/figures/random_forest_confusion_matrix.png",
+    "reports/figures/random_forest_roc_curve.png",
+    "reports/figures/random_forest_feature_importance.png",
+    "reports/figures/risk_coverage_curve.png"
+  ]
+}
